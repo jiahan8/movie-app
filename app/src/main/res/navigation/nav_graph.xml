@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_destination">
+
+    <fragment
+        android:id="@+id/main_destination"
+        android:name="com.jiahan.fave.view.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_to_detail"
+            app:destination="@id/detail_destination"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_destination"
+        android:name="com.jiahan.fave.view.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detail_to_webview"
+            app:destination="@id/webview_destination" />
+        <argument
+            android:name="movie"
+            app:argType="com.jiahan.fave.database.DatabaseMovie" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webview_destination"
+        android:name="com.jiahan.fave.view.WebViewFragment"
+        android:label="webview_fragment"
+        tools:layout="@layout/fragment_webview" >
+    </fragment>
+
+</navigation>
