@@ -3,14 +3,12 @@ package com.jiahan.fave.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.jiahan.fave.BuildConfig
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.database.MovieDAO
 import com.jiahan.fave.domain.MovieDetail
 import com.jiahan.fave.network.NetworkService
 import com.jiahan.fave.network.asDatabaseModel
 import com.jiahan.fave.network.asDomainModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,7 +20,7 @@ class MoviesRepository @Inject constructor(
     /**
      * Movies that will be shown on the screen.
      */
-    override fun getMovies() : LiveData<List<DatabaseMovie>> = movieDAO.getMovies()
+    override fun getMovies() : LiveData<List<Movie>> = movieDAO.getMovies()
 
     /**
      * Get Movies from remote database, then syncing to Room.
@@ -33,7 +31,7 @@ class MoviesRepository @Inject constructor(
         try {
             val movielist = networkService.getMovieList(
                     BuildConfig.API_KEY,
-                    "2021-01-01",
+                    "2021-08-01",
                     "2010-01-01",
                     "release_date.desc",
                     page,
@@ -44,6 +42,7 @@ class MoviesRepository @Inject constructor(
             }
             movieDAO.insertMovies(*movielist.asDatabaseModel())
         } catch (e: Exception) {
+            Log.e("getMovieList", e.toString())
         }
     }
 
@@ -58,6 +57,7 @@ class MoviesRepository @Inject constructor(
                 BuildConfig.API_KEY,
             ).asDomainModel()
         } catch (e: Exception) {
+            Log.e("getMovieDetail", e.toString())
         }
         return movieDetail
     }

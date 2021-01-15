@@ -1,15 +1,15 @@
 package com.jiahan.fave.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.databinding.MovieItemBinding
 import com.jiahan.fave.view.MainFragmentDirections
-import com.jiahan.fave.database.DatabaseMovie
 
-class MovieAdapter(private val movieList: List<DatabaseMovie>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MovieAdapter(private val movieList: List<Movie>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MessageViewHolder( MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false) )
@@ -35,14 +35,6 @@ class MovieAdapter(private val movieList: List<DatabaseMovie>) : RecyclerView.Ad
         (holder as MessageViewHolder).bind(movieList[position])
     }
 
-//    companion object {
-//        private val diffCallback = object : DiffUtil.ItemCallback<Image>() {
-//            override fun areItemsTheSame(oldItem: Image, newItem: Image): Boolean =
-//                oldItem.id == newItem.id
-//            override fun areContentsTheSame(oldItem: Image, newItem: Image): Boolean =
-//                oldItem.id == newItem.id
-//        }
-//    }
     class MessageViewHolder(private val movieItemBinding: MovieItemBinding) : RecyclerView.ViewHolder(movieItemBinding.root) {
         init {
             movieItemBinding.setMovieCallback {
@@ -50,9 +42,25 @@ class MovieAdapter(private val movieList: List<DatabaseMovie>) : RecyclerView.Ad
                 it.findNavController().navigate(action)
             }
         }
-        fun bind(movieData: DatabaseMovie) {
+        fun bind(movieData: Movie) {
             movieItemBinding.movie = movieData
         }
     }
+
+    class RecyclerViewDiffUtil(private var oldList: List<Movie>, private var newList: List<Movie>) : DiffUtil.Callback() {
+        override fun getOldListSize(): Int {
+            return oldList.size
+        }
+        override fun getNewListSize(): Int {
+            return newList.size
+        }
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].id == newList[newItemPosition].id
+        }
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].id == newList[newItemPosition].id
+        }
+    }
+
 
 }

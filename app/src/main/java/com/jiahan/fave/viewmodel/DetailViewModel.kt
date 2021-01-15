@@ -29,6 +29,7 @@ class DetailViewModel @ViewModelInject constructor(private val moviesRepository:
                 _movieDetail.postValue(movieDetail)
             }
         } catch (e: Exception) {
+            Log.e("getMovieDetail", e.toString())
         }
     }
 

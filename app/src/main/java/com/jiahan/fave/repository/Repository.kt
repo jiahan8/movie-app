@@ -1,7 +1,7 @@
 package com.jiahan.fave.repository
 
 import androidx.lifecycle.LiveData
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.domain.MovieDetail
 
 /**
@@ -9,7 +9,7 @@ import com.jiahan.fave.domain.MovieDetail
  */
 interface Repository {
 
-    fun getMovies() : LiveData<List<DatabaseMovie>>
+    fun getMovies() : LiveData<List<Movie>>
 
     suspend fun getMovieList(page: Int)
 

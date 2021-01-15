@@ -4,35 +4,32 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.facebook.drawee.view.SimpleDraweeView
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 
 /**
- * Binding adapter used to hide the spinner once data is available
+ * Binding adapter used to hide view when data is null.
  */
-@BindingAdapter("goneIfNotNull")
-fun goneIfNotNull(view: View, it: Any?) {
-    view.visibility = if(it == null) View.VISIBLE else View.GONE
-}
-
 @BindingAdapter("goneIfNull")
 fun goneIfNull(view: View, it: Any?) {
     view.visibility = if(it == null) View.GONE else View.VISIBLE
 }
 
 /**
- * Binding adapter used to display images from URL using Fresco
+ * Binding adapter used to display images from URL using Fresco.
  */
 @BindingAdapter("imageUrl")
-fun setImageUrl(imageView: SimpleDraweeView, image: DatabaseMovie) {
-    val url = Util.getImageURL(image.poster_path)
-    imageView.setImageURI( url )
+fun setImageUrl(imageView: SimpleDraweeView, movie: Movie) {
+    if( movie.poster_path != null )
+        imageView.setImageURI( Util.getImageURL(movie.poster_path) )
+    else
+        imageView.visibility = View.GONE
 }
 
 /**
- * Binding adapter used to truncate long text
+ * Binding adapter used to truncate long text.
  */
-@BindingAdapter("imageTitle")
-fun setImageTitle(textView: TextView, title: String) {
+@BindingAdapter("movieTitle")
+fun setMovieTitle(textView: TextView, title: String) {
     var sentence = title
     if (sentence.length > 60) {
         sentence = sentence.substring(0, 60) + "..."

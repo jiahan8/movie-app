@@ -1,11 +1,10 @@
 package com.jiahan.fave.viewmodel
 
-import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.repository.Repository
 import kotlinx.coroutines.launch
 
@@ -14,7 +13,7 @@ class MainViewModel @ViewModelInject constructor(private val moviesRepository: R
     /**
      * Live data that main fragment observe
      */
-    val movielist : LiveData<List<DatabaseMovie>> = moviesRepository.getMovies()
+    val movielist : LiveData<List<Movie>> = moviesRepository.getMovies()
 
     /**
      * Prevent calling when configuration changes

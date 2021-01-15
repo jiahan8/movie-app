@@ -1,16 +1,18 @@
 package com.jiahan.fave.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jiahan.fave.R
 import com.jiahan.fave.adapter.MovieAdapter
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.databinding.FragmentMainBinding
 import com.jiahan.fave.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,8 +23,8 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by viewModels()
-    private var viewModelAdapter: MovieAdapter? = null
-    var userDataList: MutableList<DatabaseMovie> = ArrayList()
+    private var adapter: MovieAdapter? = null
+    var userDataList: MutableList<Movie> = ArrayList()
     var layoutManager: LinearLayoutManager? = null
     var isLoading = true
 
@@ -35,8 +37,15 @@ class MainFragment : Fragment() {
 
         layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerview.layoutManager = layoutManager
-        viewModelAdapter = MovieAdapter(userDataList)
-        binding.recyclerview.adapter = viewModelAdapter
+        adapter = MovieAdapter(userDataList)
+
+        binding.recyclerview.adapter = adapter
+
+        val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        val horizontalDivider = context?.let { ContextCompat.getDrawable(it, R.drawable.divider) }
+        dividerItemDecoration.setDrawable(horizontalDivider!!)
+        binding.recyclerview.addItemDecoration(dividerItemDecoration)
+
         binding.lifecycleOwner = viewLifecycleOwner
 
         // Get updated movies when refreshing the page
@@ -52,7 +61,7 @@ class MainFragment : Fragment() {
                     val totalItemCount = layoutManager?.itemCount
                     val pastVisiblesItems = layoutManager?.findFirstVisibleItemPosition()
                     if(isLoading){
-                        if( (visibleItemCount!!.plus(pastVisiblesItems!!)) >= totalItemCount!!){
+                        if( (visibleItemCount!!.plus(pastVisiblesItems!!)) >= totalItemCount!!.minus(3)){
                             isLoading = false
                             // determine page number based on size of movies loaded
                             viewModel.getMovie(userDataList.size.div(20) + 1)
@@ -66,7 +75,7 @@ class MainFragment : Fragment() {
         viewModel.movielist.observe(viewLifecycleOwner, { movies ->
             userDataList.clear()
             userDataList.addAll(movies)
-            viewModelAdapter?.notifyDataSetChanged()
+            adapter?.notifyDataSetChanged()
             isLoading = true
         })
 

@@ -30,7 +30,7 @@
             app:destination="@id/webview_destination" />
         <argument
             android:name="movie"
-            app:argType="com.jiahan.fave.database.DatabaseMovie" />
+            app:argType="com.jiahan.fave.database.Movie" />
     </fragment>
 
     <fragment

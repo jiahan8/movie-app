@@ -9,7 +9,7 @@ import com.jiahan.fave.util.DATABASE_NAME
 /**
  * The Room database for this app
  */
-@Database(entities = [DatabaseMovie::class], version = 1, exportSchema = false)
+@Database(entities = [Movie::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDAO(): MovieDAO
 
@@ -24,7 +24,7 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        // Create and pre-populate the database
+        // Create database
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
         }

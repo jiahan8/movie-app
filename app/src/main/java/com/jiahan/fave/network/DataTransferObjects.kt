@@ -1,6 +1,6 @@
 package com.jiahan.fave.network
 
-import com.jiahan.fave.database.DatabaseMovie
+import com.jiahan.fave.database.Movie
 import com.jiahan.fave.domain.MovieDetail
 import com.squareup.moshi.JsonClass
 
@@ -20,7 +20,7 @@ data class NetworkMovie(
 @JsonClass(generateAdapter = true)
 data class NetworkMovieDetail(
     val id: Int,
-    val poster_path: String,
+    val poster_path: String?,
     val title: String,
     val popularity: Float,
     val overview: String,
@@ -34,12 +34,12 @@ data class Genre(
     val name: String,
 )
 
-fun NetworkMovies.asDatabaseModel(): Array<DatabaseMovie> {
+fun NetworkMovies.asDatabaseModel(): Array<Movie> {
     return results.map {
-        DatabaseMovie(
+        Movie(
             0,
             movie_id = it.id,
-            poster_path = it.poster_path ?: "",
+            poster_path = it.poster_path,
             title = it.title,
             popularity = it.popularity,
         )

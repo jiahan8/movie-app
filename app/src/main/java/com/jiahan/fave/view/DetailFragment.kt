@@ -1,19 +1,16 @@
 package com.jiahan.fave.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import com.jiahan.fave.databinding.FragmentDetailBinding
 import com.jiahan.fave.viewmodel.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DetailFragment : Fragment(){
@@ -37,7 +34,7 @@ class DetailFragment : Fragment(){
         // Get movie detail based on movie id
         viewModel.getMovieDetail( detailFragmentArgs.movie.movie_id )
 
-        // Update view from live data
+        // Update view from live data, hide views if no network
         viewModel.movieDetail.observe( viewLifecycleOwner, {
             binding.moviedetail = it
         })
