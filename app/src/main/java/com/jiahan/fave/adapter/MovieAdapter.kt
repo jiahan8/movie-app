@@ -1,13 +1,14 @@
 package com.jiahan.fave.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.jiahan.fave.database.Movie
 import com.jiahan.fave.databinding.MovieItemBinding
 import com.jiahan.fave.view.MainFragmentDirections
+import com.jiahan.fave.database.Movie
 
 class MovieAdapter(private val movieList: List<Movie>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
