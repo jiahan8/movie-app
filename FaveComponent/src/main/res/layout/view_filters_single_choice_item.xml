@@ -1,0 +1,29 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.filters.FiltersSingleChoiceItemViewModel" />
+
+    </data>
+
+    <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@{viewModel.background}"
+        android:onClick="@{viewModel::onItemClicked}"
+        android:paddingStart="@dimen/size_16"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingEnd="@dimen/size_16"
+        android:paddingBottom="@dimen/margin_small"
+        android:text="@{viewModel.name}"
+        android:textColor="@{viewModel.textColor}"
+        android:textSize="@dimen/text_size_14"
+        app:selected="@{viewModel.selected}"
+        tools:background="@color/pastel_pink"
+        tools:text="Trending"
+        tools:textColor="@color/lipstick" />
+</layout>

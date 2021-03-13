@@ -1,0 +1,183 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.outlet.OutletSmallItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{viewModel::onItemClicked}"
+        android:orientation="vertical"
+        tools:ignore=" ContentDescription">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="@dimen/size_90"
+                android:layout_height="@dimen/size_90"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:background="@color/white"
+                app:cardCornerRadius="@dimen/size_8"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_outlet_placeholder"
+                        bind:imageUrl="@{viewModel.galleryImage}" />
+
+                    <com.jiahan.fave.core.widget.NunitoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@color/lipstick"
+                        android:gravity="center"
+                        android:padding="@dimen/size_1"
+                        android:text="@{viewModel.cashbackRate}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_10"
+                        android:visibility="@{viewModel.cashbackRateVisibility}" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:src="@drawable/ic_promo_cashback"
+                android:visibility="@{viewModel.dynamicCashbackVisibility}"
+                app:layout_constraintRight_toLeftOf="@id/content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="vertical"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/card"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.jiahan.fave.core.widget.NunitoBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{viewModel.companyViewModel.tagsLabel}"
+                    android:textColor="@color/brownish_grey_four"
+                    android:textSize="@dimen/text_size_10"
+                    android:visibility="@{viewModel.companyViewModel.tagsLabelVisibility}"
+                    tools:text="Cafe, Western" />
+
+                <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{viewModel.companyViewModel.companyName}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_14"
+                    app:lineHeight="@dimen/text_line_height_18"
+                    tools:text="Pie Kingdom very very long company name, very long" />
+
+                <com.jiahan.fave.core.widget.NunitoRegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="@{viewModel.shortAddress}"
+                    android:textColor="@color/brownish_grey_three"
+                    android:textSize="@dimen/text_size_12"
+                    app:drawableStartAlign="@{@drawable/ic_location_pin_grey}"
+                    bind:ellipsizeIndex="@{viewModel.addressEllipsizeIndex}"
+                    tools:drawableStart="@drawable/ic_location_pin_grey"
+                    tools:text="The Sphere Bangsar South (600m)" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:drawableStart="@drawable/ic_star_filled"
+                        android:drawablePadding="@dimen/margin_very_tiny"
+                        android:gravity="center_vertical"
+                        android:text="@{viewModel.companyViewModel.rating}"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_12"
+                        android:visibility="@{viewModel.companyViewModel.ratingVisibility}"
+                        tools:text="5.0" />
+
+                    <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:drawableStart="@drawable/ic_dollar"
+                        android:drawablePadding="@dimen/margin_very_tiny"
+                        android:text="@{viewModel.companyViewModel.priceRange}"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_12"
+                        android:visibility="@{viewModel.companyViewModel.priceRangeVisibility}"
+                        tools:text="RM20-30" />
+
+                    <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_wallet"
+                        android:drawablePadding="@dimen/margin_very_tiny"
+                        android:text="@{viewModel.companyViewModel.partnerCashback}"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_12"
+                        android:visibility="@{viewModel.companyViewModel.partnerCashbackVisibility}"
+                        tools:text="RM8.30" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.jiahan.fave.core.widget.NunitoBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:text="@{viewModel.dynamicCashbackTime}"
+            android:textColor="@color/brownish_grey_four"
+            android:textSize="@dimen/text_size_10"
+            android:visibility="@{viewModel.dynamicCashbackVisibility}"
+            tools:text="Now till 12.30PM" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_1"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@color/divider_color"
+            android:visibility="@{viewModel.dividerVisibility}" />
+    </LinearLayout>
+</layout>

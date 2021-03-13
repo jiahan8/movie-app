@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.eCard.ECardPriceItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onItemClicked}">
+
+        <ImageView
+            android:id="@+id/iv_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:src="@{viewModel.isSelected() ? @drawable/ic_radio_on : @drawable/ic_radio_off}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_radio_on" />
+
+        <com.jiahan.fave.core.widget.NunitoBoldTextView
+            android:id="@+id/tv_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:text="@string/most_popular"
+            android:textColor="@color/lipstick"
+            android:textSize="@dimen/text_size_9"
+            android:visibility="@{viewModel.mostPopular}"
+            app:layout_constraintStart_toEndOf="@id/iv_radio"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="MOST POPULAR"
+            tools:visibility="visible" />
+
+        <com.jiahan.fave.core.widget.NunitoSemiBoldTextView
+            android:id="@+id/tv_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:text="@string/pay"
+            android:textAllCaps="true"
+            android:textColor="@color/brownish_grey_four"
+            android:textSize="@dimen/text_size_9"
+            app:layout_constraintStart_toEndOf="@id/iv_radio"
+            app:layout_constraintTop_toBottomOf="@id/tv_popular"
+            app:layout_goneMarginTop="@dimen/margin_large"
+            tools:text="PAY" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:id="@+id/tv_pay_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_tiny"
+            android:layout_marginTop="@dimen/margin_very_tiny"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:text="@{viewModel.sellingPrice}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_pay"
+            app:layout_constraintTop_toBottomOf="@id/tv_popular"
+            app:layout_goneMarginTop="@dimen/size_14"
+            tools:text="RM90" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            android:background="@color/very_light_pink_seven"
+            app:layout_constraintBottom_toBottomOf="@id/tv_pay_price"
+            app:layout_constraintStart_toEndOf="@id/tv_pay_price"
+            app:layout_constraintTop_toTopOf="@id/tv_pay_price" />
+
+        <com.jiahan.fave.core.widget.NunitoSemiBoldTextView
+            android:id="@+id/tv_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:text="@string/get"
+            android:textAllCaps="true"
+            android:textColor="@color/brownish_grey_four"
+            android:textSize="@dimen/text_size_9"
+            app:layout_constraintStart_toEndOf="@id/view_divider"
+            app:layout_constraintTop_toTopOf="@id/tv_pay" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:id="@+id/tv_get_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:text="@{viewModel.value}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_get"
+            app:layout_constraintTop_toTopOf="@id/tv_pay_price"
+            tools:text="RM110" />
+
+        <com.jiahan.fave.core.widget.LabelLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            app:labelBackgroundColor="@color/light_pink"
+            app:labelRadius="@dimen/size_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.jiahan.fave.core.widget.NunitoBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_tiny"
+                android:text="@{viewModel.bonus}"
+                android:textColor="@color/lipstick"
+                android:textSize="@dimen/text_size_10"
+                android:visibility="@{viewModel.bonusVisibility}"
+                tools:text="Bonus RM20" />
+        </com.jiahan.fave.core.widget.LabelLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

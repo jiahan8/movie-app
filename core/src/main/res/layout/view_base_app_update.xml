@@ -1,0 +1,58 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.callback.ForceUpdateViewViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_large_extra"
+        android:visibility="@{viewModel.forceUpdateVisibility, default=gone}"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_app_update" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:text="@string/msg_app_update_title"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_16" />
+
+        <com.jiahan.fave.core.widget.NunitoRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="center"
+            android:text="@{viewModel.updateContent}"
+            android:textSize="@dimen/text_size_14"
+            tools:text="@string/msg_app_update" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@{viewModel.updateAppButtonBackground}"
+            android:gravity="center"
+            android:onClick="@{viewModel::onUpdateAppClicked}"
+            android:padding="@dimen/margin_large_extra"
+            android:text="@string/msg_app_update_button"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            app:lineHeight="@dimen/text_line_height_18"
+            tools:background="@color/colorPrimary" />
+    </LinearLayout>
+</layout>

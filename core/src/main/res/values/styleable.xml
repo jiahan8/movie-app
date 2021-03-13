@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LabelLayout">
+        <attr name="labelRadius" format="dimension" />
+        <attr name="labelBackgroundColor" format="color" />
+        <attr name="labelBorderWidth" format="dimension" />
+        <attr name="labelBorderColor" format="color" />
+        <attr name="innerPaddingEnable" format="boolean" />
+    </declare-styleable>
+</resources>

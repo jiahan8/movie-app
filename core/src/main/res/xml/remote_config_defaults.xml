@@ -1,0 +1,30 @@
+<defaultsMap>
+<!--    <entry>-->
+<!--        <key>@string/remote_config_exp_category_listing</key>-->
+<!--        <value>control</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_exp_deal_logic</key>-->
+<!--        <value>control</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_exp_cross_sell</key>-->
+<!--        <value>control</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_favepay_landing</key>-->
+<!--        <value>default</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_show_grab_tooltip</key>-->
+<!--        <value>true</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_show_partner_rewards</key>-->
+<!--        <value>true</value>-->
+<!--    </entry>-->
+<!--    <entry>-->
+<!--        <key>@string/remote_config_snow_fall</key>-->
+<!--        <value>false</value>-->
+<!--    </entry>-->
+</defaultsMap>

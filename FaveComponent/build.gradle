@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation testImpl
+    androidTestImplementation androidTestImpl
+
+    debugImplementation debugImpl
+
+    implementation project(':core')
+    implementation commonImpl
+    implementation faveLibsImpl
+
+    annotationProcessor faveLibsApt
+    compileOnly faveLibsCompileOnly
+    implementation project(':ViewModelAnno')
+    annotationProcessor project(':ViewModelAnnoCompiler')
+
+    implementation 'com.facebook.fresco:fresco:2.3.0'
+
+}

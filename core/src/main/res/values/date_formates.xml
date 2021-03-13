@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="display_date_format_date">EEEE, dd MMM yyyy</string>
+    <string name="display_date_format_date_short">dd MMM yyyy</string>
+    <string name="display_date_format_date_shortest">dd MMM</string>
+    <string name="display_date_format_time_12">h:mmaa</string>
+    <string name="display_date_format_time_24">HH:mm</string>
+    <string name="display_date_format_long">EEE, dd MMM yyyy, hh:mma</string>
+    <string name="display_date_format_week_date">EEE, dd MMM</string>
+    <string name="display_date_format_time_date">dd MMM, hh:mma</string>
+</resources>

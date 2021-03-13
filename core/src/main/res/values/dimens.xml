@@ -1,0 +1,94 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Same for all dimen-values -->
+    <dimen name="static_size_1">1dp</dimen>
+    <dimen name="static_size_2">2dp</dimen>
+    <dimen name="static_size_3">3dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="text_size_9">9sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_26">26sp</dimen>
+    <dimen name="text_size_40">40sp</dimen>
+
+    <!-- Text Line Height size -->
+    <dimen name="text_line_height_14">14sp</dimen>
+    <dimen name="text_line_height_18">18sp</dimen>
+    <dimen name="text_line_height_28">28sp</dimen>
+
+    <!-- Tab Indicator Height size -->
+    <dimen name="tab_indicator_height">5dp</dimen>
+
+    <!-- Margin / Padding -->
+    <dimen name="margin_very_tiny">@dimen/size_2</dimen>
+    <dimen name="margin_tiny">@dimen/size_4</dimen>
+    <dimen name="margin_small">@dimen/size_8</dimen>
+    <dimen name="margin_normal">@dimen/size_12</dimen>
+    <dimen name="margin_large">@dimen/size_16</dimen>
+    <dimen name="margin_large_extra">@dimen/size_20</dimen>
+    <dimen name="margin_huge">@dimen/size_24</dimen>
+    <dimen name="margin_very_huge">@dimen/size_36</dimen>
+    <dimen name="margin_giant">@dimen/size_48</dimen>
+
+    <!-- Size -->
+    <dimen name="size_0">0dp</dimen>
+    <dimen name="size_1">1dp</dimen>
+    <dimen name="size_2">2dp</dimen>
+    <dimen name="size_3">3dp</dimen>
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_6">6dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_12">12dp</dimen>
+    <dimen name="size_14">14dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_18">18dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_21">21dp</dimen>
+    <dimen name="size_22">22dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_28">28dp</dimen>
+    <dimen name="size_30">30dp</dimen>
+    <dimen name="size_32">32dp</dimen>
+    <dimen name="size_33">33dp</dimen>
+    <dimen name="size_34">34dp</dimen>
+    <dimen name="size_36">36dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_42">42dp</dimen>
+    <dimen name="size_44">44dp</dimen>
+    <dimen name="size_45">45dp</dimen>
+    <dimen name="size_48">48dp</dimen>
+    <dimen name="size_50">50dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_75">75dp</dimen>
+    <dimen name="size_80">80dp</dimen>
+    <dimen name="size_90">90dp</dimen>
+    <dimen name="size_100">100dp</dimen>
+    <dimen name="size_116">116dp</dimen>
+    <dimen name="size_120">120dp</dimen>
+    <dimen name="size_140">140dp</dimen>
+    <dimen name="size_155">155dp</dimen>
+    <dimen name="size_160">160dp</dimen>
+    <dimen name="size_165">165dp</dimen>
+    <dimen name="size_175">175dp</dimen>
+    <dimen name="size_190">190dp</dimen>
+    <dimen name="size_210">210dp</dimen>
+    <dimen name="size_226">226dp</dimen>
+    <dimen name="size_230">230dp</dimen>
+    <dimen name="size_290">290dp</dimen>
+    <dimen name="size_300">300dp</dimen>
+    <dimen name="size_310">310dp</dimen>
+    <dimen name="size_380">380dp</dimen>
+    <dimen name="size_400">400dp</dimen>
+
+</resources>

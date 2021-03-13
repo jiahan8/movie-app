@@ -1,0 +1,75 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.recyclerView.EmptyViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_very_huge"
+        android:paddingRight="@dimen/margin_very_huge"
+        android:paddingBottom="@dimen/margin_very_huge">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{viewModel.icon}"
+            android:visibility="@{viewModel.iconVisibility}"
+            tools:src="@drawable/ic_empty_search_location" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_16"
+            android:visibility="@{viewModel.titleVisibility}"
+            tools:text="@string/empty_search_location" />
+
+        <com.jiahan.fave.core.widget.NunitoRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:gravity="center"
+            android:text="@{viewModel.description}"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="@{viewModel.descriptionVisibility}"
+            tools:text="Sorry, we couldn’t find any deals that match your criteria."
+            tools:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:onClick="@{viewModel::onActionClicked}"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_normal"
+            android:visibility="@{viewModel.actionVisibility}">
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{viewModel.actionText}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_14"
+                tools:text="Clear filters" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:src="@drawable/ic_arrow_right_pink"
+                android:visibility="@{viewModel.actionArrowVisibility}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

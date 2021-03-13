@@ -1,0 +1,74 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+    WHEN WE ADD FAVEPAY TO INDONESIA, REMOVE THIS COMMENT AND CHANGE THE DYNAMIC SHORTCUTS TO STATIC SHORTCUTS.
+    TASK FOR : GARETH
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_3d_scanner"
+        android:shortcutDisabledMessage="@string/app_shortcut_disabled_text"
+        android:shortcutId="qrCode"
+        android:shortcutLongLabel="@string/app_shortcut_qr_code_label"
+        android:shortcutShortLabel="@string/app_shortcut_qr_code_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.jiahan.fave.activity.SplashActivity"
+            android:targetPackage="com.jiahan.fave">
+            <extra android:name="extra_3d_start_tab"
+                   android:value="qrScan"/>
+        </intent>
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_3d_pay"
+        android:shortcutDisabledMessage="@string/app_shortcut_disabled_text"
+        android:shortcutId="favePay"
+        android:shortcutLongLabel="@string/app_shortcut_favepay_label"
+        android:shortcutShortLabel="@string/app_shortcut_favepay_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.jiahan.fave.activity.SplashActivity"
+            android:targetPackage="com.jiahan.fave">
+            <extra android:name="extra_3d_start_tab"
+                   android:value="favePay"/>
+        </intent>
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+    -->
+
+<!--    <shortcut-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_3d_search"-->
+<!--        android:shortcutDisabledMessage="@string/app_shortcut_disabled_text"-->
+<!--        android:shortcutId="search"-->
+<!--        android:shortcutLongLabel="@string/app_shortcut_search_label"-->
+<!--        android:shortcutShortLabel="@string/app_shortcut_search_label">-->
+<!--        <intent-->
+<!--            android:action="android.intent.action.VIEW"-->
+<!--            android:targetClass="com.jiahan.fave.activity.SplashActivity"-->
+<!--            android:targetPackage="com.jiahan.fave">-->
+<!--            <extra android:name="extra_3d_start_tab"-->
+<!--                   android:value="search"/>-->
+<!--        </intent>-->
+<!--        <categories android:name="android.shortcut.conversation"/>-->
+<!--    </shortcut>-->
+
+<!--    <shortcut-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_3d_nearby"-->
+<!--        android:shortcutDisabledMessage="@string/app_shortcut_disabled_text"-->
+<!--        android:shortcutId="nearby"-->
+<!--        android:shortcutLongLabel="@string/app_shortcut_nearby_label"-->
+<!--        android:shortcutShortLabel="@string/app_shortcut_nearby_label">-->
+<!--        <intent-->
+<!--            android:action="android.intent.action.VIEW"-->
+<!--            android:targetClass="com.jiahan.fave.activity.SplashActivity"-->
+<!--            android:targetPackage="com.jiahan.fave">-->
+<!--            <extra android:name="extra_3d_start_tab"-->
+<!--                   android:value="nearby"/>-->
+<!--        </intent>-->
+<!--        <categories android:name="android.shortcut.conversation"/>-->
+<!--    </shortcut>-->
+</shortcuts>

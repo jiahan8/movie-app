@@ -1,0 +1,81 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.callback.ErrorViewViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="@{viewModel.errorVisibility, default=gone}"
+        tools:visibility="visible">
+
+        <com.jiahan.fave.core.widget.NunitoSemiBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_five"
+            android:gravity="center"
+            android:padding="@dimen/margin_small"
+            android:text="@{viewModel.errorCode}"
+            android:textColor="@color/brown_grey_two"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="@{viewModel.errorCodeVisibility}"
+            tools:text="Error ID : 34po523j23enk23nkj" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_large_extra">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{viewModel.errorIcon}"
+                tools:src="@drawable/ic_error_generic" />
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:text="@{viewModel.errorTitle}"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="@string/msg_error_generic_title" />
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@{viewModel.errorDescription}"
+                android:textColor="@color/brownish_grey_four"
+                android:textSize="@dimen/text_size_14"
+                tools:text="@string/msg_error_generic" />
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:background="@{viewModel.retryButtonBackground}"
+                android:gravity="center"
+                android:onClick="@{viewModel::onRetryClicked}"
+                android:padding="@dimen/margin_large_extra"
+                android:text="@{viewModel.retryButtonText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"
+                app:lineHeight="@dimen/text_line_height_18"
+                tools:background="@color/colorPrimary"
+                tools:text="@string/msg_error_generic_button" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

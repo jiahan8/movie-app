@@ -1,0 +1,37 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.review.RatingCategoryItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_24"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.jiahan.fave.core.widget.NunitoRegularTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_weight="1"
+            android:text="@{viewModel.name}"
+            android:textColor="@color/brownish_grey_three"
+            android:textSize="@dimen/text_size_12"
+            tools:text="Value For Money" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_12"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressDrawable="@drawable/ic_rating_starv2"
+            android:rating="@{viewModel.ratingValue}"
+            android:stepSize="1.0"
+            tools:rating="1" />
+    </LinearLayout>
+</layout>

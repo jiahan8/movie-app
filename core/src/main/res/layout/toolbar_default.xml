@@ -1,0 +1,50 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.callback.BaseToolbarViewModel" />
+    </data>
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:collapsedTitleGravity="center"
+        app:collapsedTitleTextAppearance="@style/Toolbar.TitleTextCollapse"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentScrim="@color/white"
+        app:expandedTitleMarginBottom="@dimen/margin_normal"
+        app:expandedTitleMarginStart="@dimen/margin_large_extra"
+        app:expandedTitleTextAppearance="@style/Toolbar.TitleTextExpanded"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:title="@{viewModel.toolbarTitle}"
+        app:titleEnabled="@{viewModel.toolbarTitleVisibility}"
+        tools:title="Expanded">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_80" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:elevation="0dp"
+            android:fillViewport="false"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:elevation="0dp"
+            app:layout_collapseMode="pin"
+            app:navigationIcon="@{viewModel.navigationIcon}"
+            app:titleMarginEnd="?actionBarSize"
+            app:titleTextAppearance="@style/Toolbar.TitleTextCollapse" />
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+</layout>

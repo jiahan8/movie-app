@@ -1,0 +1,41 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.callback.BaseViewViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/viewStub"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                layout="@layout/view_base_loading"
+                app:viewModel="@{viewModel}" />
+
+            <include
+                layout="@layout/view_base_error"
+                app:viewModel="@{viewModel}" />
+
+            <include
+                layout="@layout/view_base_app_update"
+                app:viewModel="@{viewModel}" />
+
+            <include
+                layout="@layout/view_base_force_logout"
+                app:viewModel="@{viewModel}" />
+        </FrameLayout>
+    </FrameLayout>
+</layout>

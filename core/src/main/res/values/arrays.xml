@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="my_faves_title">
+        <item>@string/deals</item>
+        <item>@string/fave_pay</item>
+    </string-array>
+</resources>

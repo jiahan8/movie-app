@@ -1,0 +1,180 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Fave</string>
+    <string name="msg_loading_please_wait">Loading. Please wait…</string>
+    <string name="msg_successful_save_photo">Photo had been saved</string>
+    <string name="msg_error_no_dialer">No phone app detected</string>
+    <string name="msg_error_enable_permission_location">You need to allow location permissions in order to discover nearby Faves.</string>
+    <string name="msg_error_enable_permission_storage">You need to allow file storage permissions in order to save photo</string>
+    <string name="msg_error_enable_gps">You need to enable GPS in order to discover nearby Faves.</string>
+    <string name="msg_error_save_photo">Error while saving image!</string>
+    <string name="msg_error_generic_button">Try Again</string>
+    <string name="msg_error_generic_title">Oh Snap!</string>
+    <string name="msg_error_generic">Something went wrong, Joey here is looking into it.</string>
+    <string name="msg_error_http_id">Error Id: %1$s</string>
+    <string name="msg_error_no_internet_title">No Internet!</string>
+    <string name="msg_error_no_internet">Connection lost. Please connect to internet</string>
+    <string name="msg_app_update_button">Update App</string>
+    <string name="msg_app_update_title">New Update Available</string>
+    <string name="msg_app_update">Update to the latest app version to enjoy all the new features</string>
+    <string name="msg_app_logout_button">Log in</string>
+    <string name="msg_app_logout_title">You were logged out</string>
+    <string name="msg_app_logout">We detected an error in your account. Please log back in.</string>
+    <string name="enable_location_title">Turn on your location</string>
+    <string name="enable_location_content">We are unable to get your location, turn on your location now?</string>
+    <string name="not_now">Not now</string>
+    <string name="okay">Okay</string>
+
+    <string name="lorem_cta" translatable="false">Lorem ipsum</string>
+    <string name="lorem_multi_line" translatable="false" tools:ignore="ExtraTranslation">Lorem ipsum\nLorem ipsum</string>
+    <string name="lorem_short" translatable="false">Lorem ipsum dolor sit amet</string>
+    <string name="lorem_long" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae diam massa. Donec id risus sit amet dui viverra malesuada. Duis feugiat quam sed metus ornare mattis. Praesent consequat non turpis ac fringilla. In sed ligula nisi. Nullam auctor tristique placerat. Fusce mollis sodales sapien at ornare. Donec mattis accumsan leo sit amet efficitur.</string>
+    <string name="lorem_veri_long" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae diam massa. Donec id risus sit amet dui viverra malesuada. Duis feugiat quam sed metus ornare mattis. Praesent consequat non turpis ac fringilla. In sed ligula nisi. Nullam auctor tristique placerat. Fusce mollis sodales sapien at ornare. Donec mattis accumsan leo sit amet efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae diam massa. Donec id risus sit amet dui viverra malesuada. Duis feugiat quam sed metus ornare mattis. Praesent consequat non turpis ac fringilla. In sed ligula nisi. Nullam auctor tristique placerat. Fusce mollis sodales sapien at ornare. Donec mattis accumsan leo sit amet efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae diam massa. Donec id risus sit amet dui viverra malesuada. Duis feugiat quam sed metus ornare mattis. Praesent consequat non turpis ac fringilla. In sed ligula nisi. Nullam auctor tristique placerat. Fusce mollis sodales sapien at ornare. Donec mattis accumsan leo sit amet efficitur.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="what_s_new">What\'s new</string>
+    <string name="location">Location</string>
+    <string name="about">About</string>
+    <string name="show_more">Show more</string>
+    <string name="show_less">Show less</string>
+    <string name="menu">Menu</string>
+    <string name="outlet_overview_title">Overview</string>
+    <string name="outlet_deals_title">Offers</string>
+    <string name="outlet_reviews_title">Reviews</string>
+    <string name="outlet_e_card">eCard</string>
+    <string name="outlet_deals">Deals</string>
+    <string name="navigation_call">Call</string>
+    <string name="navigation_direction">Directions</string>
+    <string name="navigation_book_a_ride">Book a Ride</string>
+    <string name="no_reservation_required">No reservation required</string>
+    <string name="deal_things_to_know">Things to know</string>
+    <string name="how_to_redeem">How to redeem</string>
+    <string name="how_ecard_work">How do eCards work?</string>
+    <string name="fine_print">Fine print</string>
+    <string name="cancellation_policy">Cancellation policy</string>
+    <string name="see_more">See more</string>
+    <string name="shops_collection_promo_code">Promo code</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="promo_code_copied_text">Promo code copied!</string>
+    <string name="title_share_via">Share via</string>
+    <string name="no_ratings">No ratings</string>
+    <string name="redeemable_date">Redeem from %1$s until %2$s</string>
+
+    <string name="percent_off_text">%d%% OFF</string>
+    <string name="percent_cashback_text">%d%% Cashback</string>
+    <string name="percent_cashback_time_text">(Now until %s)</string>
+
+    <string name="photo_gallery_index_total_text">%1$d of %2$d</string>
+    <string name="address_distance">%1$s (%2$s)</string>
+    <string name="outlet_open_now">Open Now </string>
+    <string name="outlet_next_close_hour"> • Closes %s</string>
+    <string name="outlet_next_open_hour">Closed • Open %s</string>
+    <string name="closed">Closed</string>
+    <string name="number_of_location">%d locations</string>
+
+    <string name="reviews">Reviews</string>
+    <string name="review_shop_response">Shop Response: %s</string>
+    <string name="review_service">Service</string>
+    <string name="review_ambience">Ambience</string>
+    <string name="review_food">Food</string>
+    <string name="review_value_for_money">Value For Money</string>
+    <string name="pay_now">Pay now</string>
+
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="deals_in">Deals in %s</string>
+    <string name="sold_count">%d sold</string>
+    <string name="available_outlet">Available Outlet</string>
+    <string name="e_cards">eCards</string>
+    <string name="deals">Deals</string>
+    <string name="favepay_paid_here">%d paid here</string>
+    <string name="type">Type</string>
+    <string name="cuisine">Cuisine</string>
+    <string name="food">Food</string>
+    <string name="bought">%d bought</string>
+    <string name="opening_hours">Opening Hours</string>
+    <string name="cashback_info">Cashback info</string>
+    <string name="today_cashback">Today\'s cashback:</string>
+    <string name="other_hours">Other hours</string>
+    <string name="available_outlets">Available locations</string>
+    <string name="fave_deal_guarantee_coverage">Fave Guarantee has you covered</string>
+    <string name="fave_guarantee_policy_1">3 days free cancellation</string>
+    <string name="fave_guarantee_policy_2">100% refund if merchant goes out of business</string>
+    <string name="fave_guarantee_policy_3">365 days a year of customer support through the Help Center within the Fave app</string>
+    <string name="fave_guarantee_policy_4">Secure Payment Guarantee</string>
+    <string name="activity_detail_cancellation_policy_detail_4_text">Got questions? Write to hello@myfave.com</string>
+
+    <string name="explore">Explore</string>
+    <string name="most_used">Most used</string>
+    <string name="most_popular">MOST POPULAR</string>
+    <string name="more_for_you">More for you</string>
+    <string name="where_are_you_going">Where are you going?</string>
+    <string name="nearby">Nearby</string>
+    <string name="change_city">Change city</string>
+    <string name="clear_all">Clear all</string>
+    <string name="recent_searches">Recent searches</string>
+    <string name="popular_places">Popular places</string>
+    <string name="clear_filters">Clear filters</string>
+    <string name="filter_and_sort">Filter &amp; Sort</string>
+    <string name="empty_app_filter_title">No %s found</string>
+    <string name="empty_app_filter_description">Sorry, we couldn\’t find any %s that match your criteria.</string>
+    <string name="now_till">Now till %s</string>
+    <string name="from_to_time">%1$s - %2$s</string>
+    <string name="now_until">Now until %s</string>
+
+    <string name="filters_apply">Apply</string>
+    <string name="filters_reset">Reset</string>
+    <string name="filters">Filters</string>
+
+    <string name="present_voucher">Present voucher on app when you arrive at the outlet</string>
+    <string name="pax">%s pax</string>
+    <string name="halal">Halal</string>
+    <string name="pork_free">Pork-free</string>
+    <string name="male_only">Male customer only</string>
+    <string name="female_only">Female customer only</string>
+    <string name="search_in">Search in %1$s</string>
+
+    <string name="featured_in">Featured in</string>
+    <string name="collections">Collections</string>
+    <string name="explore_places">Explore places</string>
+    <string name="trending_deals">Trending deals</string>
+    <string name="trending_deals_description">Handpicked deals of the day for you!</string>
+    <string name="promo_cashback">Promo cashback</string>
+    <string name="promo_cashback_description">Enjoy higher cashback during selected hours!</string>
+    <string name="empty_deal_title">No deals found</string>
+    <string name="empty_deal_description">Check back soon as we\'re working hard to help you save on your favorite brands!</string>
+    <string name="empty_outlet_title">We’re not there&#8230; yet</string>
+    <string name="empty_outlet_e_card_description">Check back soon as we\'re working hard to help you earn cashback on your favorite brands!</string>
+    <string name="empty_e_card_title">No eCards yet</string>
+    <string name="empty_category_title">We couldn\'t find anything</string>
+    <string name="empty_category_description"> Check back soon as we\'re working hard to help you save on your favorite brands!</string>
+
+    <string name="all_deals">All deals</string>
+    <string name="all_outlets">All outlets</string>
+    <string name="empty_search_location">Uh oh&#8230; Nowhere to be found</string>
+    <string name="try_nearby">Try nearby instead</string>
+    <string name="try_these_filter">Try these filters:</string>
+    <string name="wrong_main_category">Category not found</string>
+
+    <string name="ecards_near_you">eCards near you</string>
+    <string name="how_it_works">How it works</string>
+    <string name="ecard_how_it_works_description">Get extra cashback when you buy partner eCards</string>
+    <string name="ecard_validity">Valid for %s from date of purchase</string>
+    <string name="tell_me_more">Tell me more</string>
+    <string name="buy_now_price">Buy Now • %s</string>
+
+    <string name="still_need_help">Still need help?</string>
+    <string name="still_need_help_desc">Our friendly support team is here for you.</string>
+    <string name="talk_to_us">Talk to us</string>
+    <string name="pay">Pay</string>
+    <string name="get">Get</string>
+    <string name="wrong_ecard">eCard not found</string>
+    <string name="gift_it">Gift it</string>
+
+    <string name="empty_my_fave_deal_description">What’s stopping you from a good deal?</string>
+    <string name="empty_my_fave_deal_action_text">Let’s discover deals</string>
+    <string name="empty_my_fave_company_description">Time to leave your house</string>
+    <string name="empty_my_fave_company_action_text">Let’s explore places</string>
+
+    <string name="fave_pay">FavePay</string>
+    <string name="my_faves">My Faves</string>
+
+</resources>

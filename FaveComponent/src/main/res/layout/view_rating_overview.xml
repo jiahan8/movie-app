@@ -1,0 +1,81 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.review.RatingOverallViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rating_overall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{viewModel.background}"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_large"
+        tools:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_normal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.rating}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_20"
+                    android:visibility="@{viewModel.ratingVisibility}"
+                    tools:text="4.8"
+                    tools:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="@dimen/size_16"
+                    android:layout_height="@dimen/size_16"
+                    android:layout_marginStart="@dimen/margin_tiny"
+                    android:src="@{viewModel.ratingIcon}"
+                    tools:src="@drawable/ic_star_filled_with_margin" />
+            </LinearLayout>
+
+            <com.jiahan.fave.core.widget.NunitoBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.ratingCount}"
+                android:textColor="@color/brownish_grey_four"
+                android:textSize="@dimen/text_size_10"
+                tools:text="no ratings" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/size_1"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:background="@color/very_light_pink_eight" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:background="@color/white"
+            app:layoutManager="@{viewModel.layoutManager}"
+            bind:adapter="@{viewModel.adapter}"
+            tools:itemCount="4"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/view_rating_category_item" />
+    </LinearLayout>
+</layout>

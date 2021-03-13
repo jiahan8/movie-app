@@ -1,0 +1,27 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.seeMore.HorizontalSeeMoreItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:onClick="@{viewModel.onClickListener}"
+        android:padding="@dimen/margin_large">
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_arrow_right_white_with_background"
+            android:drawablePadding="@dimen/margin_normal"
+            android:gravity="center_vertical"
+            android:text="@string/see_more"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+</layout>

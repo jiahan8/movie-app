@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFDE206A</color>
+    <color name="colorPrimaryDark">#FF8E1152</color>
+    <color name="colorAccent">#FF48B049</color>
+    <color name="color_control_highlight">#40000000</color>
+    <color name="divider_color">@color/very_light_pink_eight</color>
+
+    <color name="transparent">#00FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!--Primary colors-->
+    <color name="lipstick">@color/colorPrimary</color>
+    <color name="pastel_pink">#f7c7da</color>
+    <color name="light_pink">#fbe8f0</color>
+    <!--Neutral colors-->
+    <color name="light_black">#262626</color>
+    <color name="brownish_grey_four">#5c5c5c</color>
+    <color name="brown_grey_two">#929292</color>
+    <color name="very_light_pink_seven">#c9c9c9</color>
+    <color name="very_light_pink_eight">#e9e9e9</color>
+    <color name="white_five">#f4f4f4</color>
+    <color name="brownish_grey_three">#5d5d5d</color>
+    <!--Semantic colors-->
+    <color name="muted_blue">#FF60B8D8</color>
+    <color name="dark_blue">#FF2BA0CA</color>
+    <!--Gradient-->
+    <color name="grapefruit">#ff5858</color>
+    <color name="barbie_pink">#ff2e95</color>
+
+    <!--Opacity-->
+    <color name="white_80">#CCFFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_25">#40FFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="black_80">#CC000000</color>
+    <color name="black_25">#40000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="grey_15">#26C4C4C4</color>
+    <color name="light_black_50">#90262626</color>
+</resources>

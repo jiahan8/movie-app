@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jiahan.fave.movie">
+
+    <application>
+        <activity android:name=".feature.MovieListActivity"/>
+        <activity android:name=".feature.MovieDetailActivity"/>
+    </application>
+
+</manifest>

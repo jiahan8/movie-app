@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="deals">
+        <item quantity="one">%d deal</item>
+        <item quantity="other">%d deals</item>
+    </plurals>
+    <plurals name="photos">
+        <item quantity="one">%d photo</item>
+        <item quantity="other">%d photos</item>
+    </plurals>
+    <plurals name="places">
+        <item quantity="one">%d place</item>
+        <item quantity="other">%d places</item>
+    </plurals>
+    <plurals name="ecards">
+        <item quantity="one">%d eCard</item>
+        <item quantity="other">%d eCards</item>
+    </plurals>
+    <plurals name="outlets">
+        <item quantity="one">%d outlet</item>
+        <item quantity="other">%d outlets</item>
+    </plurals>
+    <plurals name="ratings">
+        <item quantity="one">%d rating</item>
+        <item quantity="other">%d ratings</item>
+    </plurals>
+    <plurals name="vouchers_limit">
+        <item quantity="one">Limit to %d voucher per person</item>
+        <item quantity="other">Limit to %d vouchers per person</item>
+    </plurals>
+    <plurals name="deals_you_might_like">
+        <item quantity="one">Deal you might like</item>
+        <item quantity="other">Deals you might like</item>
+    </plurals>
+    <plurals name="outlet_use_in">
+        <item quantity="one">You can use this in %d outlet</item>
+        <item quantity="other">You can use this in %d outlets</item>
+    </plurals>
+    <plurals name="outlet_also_in">
+        <item quantity="one">Also in %d other outlet</item>
+        <item quantity="other">Also in %d other outlets</item>
+    </plurals>
+    <plurals name="deals_in">
+        <item quantity="one">Deal in</item>
+        <item quantity="other">Deals in</item>
+    </plurals>
+</resources>

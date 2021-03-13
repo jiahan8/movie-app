@@ -1,0 +1,206 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.outlet.OutletXLargeViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        app:cardCornerRadius="@dimen/size_20">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_large">
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:id="@+id/lb_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{viewModel.companyViewModel.companyName}"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/text_size_20"
+                app:layout_constraintEnd_toStartOf="@id/img_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lineHeight="@dimen/text_line_height_28"
+                tools:text="@string/lorem_short" />
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:id="@+id/lb_shop_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@{viewModel.companyViewModel.tagsLabel}"
+                android:textColor="@color/brownish_grey_four"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintEnd_toStartOf="@id/img_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lb_shop_name"
+                tools:text="@string/lorem_cta" />
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="@dimen/size_50"
+                android:layout_height="@dimen/size_50"
+                android:scaleType="fitXY"
+                android:src="@drawable/default_outlet_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lb_shop_name"
+                app:roundedCornerRadius="@{@dimen/size_8}"
+                bind:imageUrl="@{viewModel.companyViewModel.logo}" />
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:id="@+id/lb_shop_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:maxLines="1"
+                android:text="@{viewModel.shortAddress}"
+                android:textSize="@dimen/text_size_12"
+                app:drawableStartAlign="@{@drawable/ic_location_pin_grey}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lb_shop_category"
+                tools:drawableStart="@drawable/ic_location_pin_grey"
+                tools:text="@string/lorem_short" />
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:id="@+id/lb_shop_open_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@{viewModel.outletOpenHour}"
+                android:textColor="@color/lipstick"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lb_shop_addr"
+                tools:text="@string/lorem_cta" />
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:id="@+id/lb_shop_close_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_tiny"
+                android:onClick="@{viewModel::onBusinessHourClicked}"
+                android:text="@{viewModel.outletCloseHour}"
+                android:textColor="@color/brownish_grey_four"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="@{viewModel.outletHourAvailable}"
+                app:layout_constraintBottom_toBottomOf="@id/lb_shop_open_desc"
+                app:layout_constraintStart_toEndOf="@id/lb_shop_open_desc"
+                app:layout_constraintTop_toTopOf="@id/lb_shop_open_desc"
+                tools:text="@string/lorem_cta" />
+
+            <ImageView
+                android:layout_width="@dimen/size_18"
+                android:layout_height="@dimen/size_18"
+                android:onClick="@{viewModel::onBusinessHourClicked}"
+                android:padding="@dimen/margin_tiny"
+                android:visibility="@{viewModel.outletHourAvailable}"
+                app:layout_constraintBottom_toBottomOf="@id/lb_shop_close_desc"
+                app:layout_constraintStart_toEndOf="@id/lb_shop_close_desc"
+                app:layout_constraintTop_toTopOf="@id/lb_shop_close_desc"
+                app:srcCompat="@drawable/ic_arrow_down" />
+
+            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                android:id="@+id/bn_shop_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@{viewModel.payBackground}"
+                android:onClick="@{viewModel::onPayClicked}"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingTop="@dimen/margin_tiny"
+                android:paddingEnd="@dimen/margin_normal"
+                android:paddingBottom="@dimen/margin_tiny"
+                android:text="@string/pay_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                android:visibility="@{viewModel.hasFavePay}"
+                app:elevation="@dimen/size_20"
+                app:layout_constraintBottom_toBottomOf="@id/lb_shop_open_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lb_shop_open_desc"
+                app:textAllCaps="false"
+                tools:background="@color/lipstick"
+                tools:text="Pay Now" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:background="@color/very_light_pink_eight"
+                app:layout_constraintTop_toBottomOf="@id/lb_shop_open_desc" />
+
+            <ImageView
+                android:id="@+id/img_fav"
+                android:layout_width="@dimen/size_24"
+                android:layout_height="@dimen/size_24"
+                android:onClick="@{viewModel::onFavouriteClicked}"
+                android:visibility="@{viewModel.favouriteVisibility}"
+                app:layout_constraintBottom_toBottomOf="@id/bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/bottom"
+                bind:src="@{viewModel.favouriteIcon}"
+                tools:src="@drawable/ic_heart_filled" />
+
+            <LinearLayout
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@id/img_fav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider">
+
+                <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:drawableStart="@drawable/ic_star_filled"
+                    android:drawablePadding="@dimen/margin_very_tiny"
+                    android:gravity="center_vertical"
+                    android:text="@{viewModel.companyViewModel.rating}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{viewModel.companyViewModel.ratingVisibility}"
+                    tools:text="5.0" />
+
+                <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:drawableStart="@drawable/ic_dollar"
+                    android:drawablePadding="@dimen/margin_very_tiny"
+                    android:text="@{viewModel.companyViewModel.priceRange}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{viewModel.companyViewModel.priceRangeVisibility}"
+                    tools:text="RM20-30" />
+
+                <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_wallet"
+                    android:drawablePadding="@dimen/margin_very_tiny"
+                    android:text="@{viewModel.companyViewModel.partnerCashback}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{viewModel.companyViewModel.partnerCashbackVisibility}"
+                    tools:text="RM8.30" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

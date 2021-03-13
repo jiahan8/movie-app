@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.needHelp.NeedHelpItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_very_huge"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/very_light_pink_eight" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/still_need_help"
+            android:layout_marginTop="@dimen/margin_very_huge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_20" />
+
+        <com.jiahan.fave.core.widget.NunitoRegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:text="@string/still_need_help_desc"
+            android:textSize="@dimen/text_size_14" />
+
+        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@{viewModel.talkToUsBackground}"
+            android:paddingStart="@dimen/margin_huge"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingEnd="@dimen/margin_huge"
+            android:onClick="@{viewModel::onTalkToUsClicked}"
+            android:paddingBottom="@dimen/margin_normal"
+            android:text="@string/talk_to_us"
+            android:textColor="@color/lipstick"
+            android:textSize="@dimen/text_size_16" />
+
+    </LinearLayout>
+</layout>

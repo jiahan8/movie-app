@@ -1,2 +1,7 @@
+include ':movie'
+include ':FaveComponent'
+include ':ViewModelAnnoCompiler'
+include ':ViewModelAnno'
+include ':core'
 include ':app'
 rootProject.name = "Movie App"

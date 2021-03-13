@@ -1,0 +1,116 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.feature.common.MessageDialogViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{viewModel.background}"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_huge"
+        tools:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:src="@{viewModel.resourceIcon}"
+            android:visibility="@{viewModel.resourceIconVisibility}"
+            tools:visibility="gone" />
+
+        <com.jiahan.fave.core.widget.NunitoMediumTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="center"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_16"
+            android:visibility="@{viewModel.titleVisibility}"
+            tools:text="@string/enable_location_title"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_weight="1">
+
+<!--            <com.jiahan.fave.widget.MaxHeightWebView-->
+<!--                android:id="@+id/web_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@{viewModel.messageBackground}"-->
+<!--                android:scrollbars="none"-->
+<!--                android:visibility="@{viewModel.webViewVisibility}"-->
+<!--                tools:background="@color/white_two"-->
+<!--                tools:visibility="gone" />-->
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:id="@+id/md_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{viewModel.message}"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="@{!viewModel.webViewVisibility}"
+                tools:text="“The 108 Project” is saved. You can view it on “Saved” tab"
+                tools:visibility="visible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_48"
+            android:layout_marginTop="@dimen/margin_very_huge"
+            android:orientation="horizontal">
+
+            <com.jiahan.fave.core.widget.NunitoMediumTextView
+                android:id="@+id/md_buttonDefaultNegative"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_weight="1"
+                android:background="@{viewModel.negativeBackground}"
+                android:gravity="center"
+                android:maxLines="2"
+                android:onClick="@{viewModel::onNegativeClicked}"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingEnd="@dimen/margin_normal"
+                android:text="@{viewModel.negativeButtonText}"
+                android:textAllCaps="true"
+                android:textColor="@color/lipstick"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="@{viewModel.negativeVisibility}"
+                tools:background="@color/white"
+                tools:text="No, Thanks You"
+                tools:visibility="visible" />
+
+            <com.jiahan.fave.core.widget.NunitoMediumTextView
+                android:id="@+id/md_buttonDefaultPositive"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@{viewModel.positiveBackground}"
+                android:gravity="center"
+                android:maxLines="2"
+                android:onClick="@{viewModel::onPositiveClicked}"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingEnd="@dimen/margin_normal"
+                android:text="@{viewModel.positiveButtonText}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14"
+                tools:background="@color/lipstick"
+                tools:text="Yes\nYes" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

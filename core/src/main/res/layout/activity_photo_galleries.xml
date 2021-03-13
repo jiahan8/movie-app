@@ -1,0 +1,41 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.core.feature.common.PhotoGalleriesViewModel" />
+    </data>
+
+    <com.jiahan.fave.core.widget.PullBackLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:backgroundColor="@{viewModel.pullBackBackgroundColor}"
+        app:onPullListener="@{viewModel.pullBackListener}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{viewModel.adapter}"
+                app:addOnPageChangeListener="@{viewModel.pageChangeListener}"
+                app:currentItem="@{viewModel.defaultIndex}" />
+
+            <com.jiahan.fave.core.widget.NunitoRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:padding="@dimen/margin_large"
+                android:text="@{viewModel.currentPhotoIndex}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+    </com.jiahan.fave.core.widget.PullBackLayout>
+</layout>

@@ -1,0 +1,216 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.deal.DealLargeViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UnusedAttribute, ContentDescription">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/size_230"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_tiny"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginRight="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            android:onClick="@{viewModel::onItemClicked}"
+            android:outlineSpotShadowColor="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/size_16"
+            app:cardElevation="@dimen/size_4"
+            app:cardPreventCornerOverlap="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        imageUrl="@{viewModel.logo}"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_160"
+                        android:scaleType="centerCrop" />
+
+                    <com.jiahan.fave.core.widget.NunitoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_normal"
+                        android:background="@{viewModel.discountBackground}"
+                        android:paddingStart="@dimen/margin_normal"
+                        android:paddingTop="@dimen/margin_very_tiny"
+                        android:paddingEnd="@dimen/margin_normal"
+                        android:paddingBottom="@dimen/margin_very_tiny"
+                        android:text="@{viewModel.discount}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:visibility="@{viewModel.discountVisibility}"
+                        tools:background="@color/colorPrimary"
+                        tools:text="53% OFF" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:orientation="vertical">
+
+                    <com.jiahan.fave.core.widget.NunitoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@color/white_80"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@{viewModel.outletViewModel.companyViewModel.companyName}"
+                        android:textColor="@color/brownish_grey_four"
+                        android:textSize="@dimen/text_size_10"
+                        tools:text="Fur Fur Chicken Hot Pot" />
+
+                    <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:ellipsize="end"
+                        android:lines="2"
+                        android:minLines="2"
+                        android:text="@{viewModel.dealName}"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_14"
+                        app:lineHeight="@dimen/text_line_height_18"
+                        tools:text="Signature Big Chicken Hot Pot with Free Soup for 2-3 People" />
+
+                    <com.jiahan.fave.core.widget.NunitoRegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:drawablePadding="@dimen/margin_very_tiny"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@{viewModel.outletViewModel.shortAddress}"
+                        android:textColor="@color/brownish_grey_four"
+                        android:textSize="@dimen/text_size_12"
+                        app:drawableStartAlign="@{@drawable/ic_location_pin_grey}"
+                        bind:ellipsizeIndex="@{viewModel.outletViewModel.addressEllipsizeIndex}"
+                        tools:drawableStart="@drawable/ic_location_pin_grey"
+                        tools:text="Petaling Jaya, Grand Se…(5.1km)" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:orientation="horizontal">
+
+                        <com.jiahan.fave.core.widget.NunitoBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@{viewModel.boughtBackground}"
+                            android:paddingStart="@dimen/margin_small"
+                            android:paddingTop="@dimen/margin_tiny"
+                            android:paddingEnd="@dimen/margin_small"
+                            android:paddingBottom="@dimen/margin_tiny"
+                            android:text="@{viewModel.purchaseCount}"
+                            android:textColor="@color/lipstick"
+                            android:textSize="@dimen/text_size_10"
+                            android:visibility="@{viewModel.purchaseCountVisibility ? View.VISIBLE : View.INVISIBLE}"
+                            tools:background="@color/light_pink"
+                            tools:text="101 bought" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:onClick="@{viewModel::onFavouriteClicked}"
+                            android:visibility="@{viewModel.favouriteVisibility}"
+                            bind:src="@{viewModel.favouriteIcon}"
+                            tools:src="@drawable/ic_heart_filled"
+                            tools:visibility="visible" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_1"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:background="@color/divider_color" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_large">
+
+                        <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_star_filled"
+                            android:drawablePadding="@dimen/margin_very_tiny"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.outletViewModel.companyViewModel.rating}"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/text_size_14"
+                            android:visibility="@{viewModel.outletViewModel.companyViewModel.ratingVisibility}"
+                            tools:text="4.8" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:orientation="horizontal">
+
+                            <com.jiahan.fave.core.widget.NunitoSemiBoldTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:text="@{viewModel.originalPrice}"
+                                android:textColor="@color/brownish_grey_three"
+                                android:textSize="@dimen/text_size_12"
+                                android:visibility="@{viewModel.originalPriceVisibility}"
+                                tools:text="RM10" />
+
+                            <com.jiahan.fave.core.widget.NunitoExtraBoldTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.price}"
+                                android:textColor="@color/lipstick"
+                                android:textSize="@dimen/text_size_12"
+                                tools:text="RM5" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:elevation="@dimen/size_4"
+            android:src="@drawable/ic_trending"
+            android:visibility="@{viewModel.trendingVisibility}" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:elevation="@dimen/size_4"
+            android:src="@drawable/ic_flash"
+            android:visibility="@{viewModel.flashVisibility}" />
+    </FrameLayout>
+</layout>

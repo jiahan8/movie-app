@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jiahan.fave.favecomponent.component.movie.MovieItemViewModel" />
+        <import type="com.jiahan.fave.core.utils.Utils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:padding="10dp"
+        android:onClick="@{viewModel::onItemClicked}">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/imageview"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:imageUrl="@{viewModel.movieImage}"
+            fresco:actualImageScaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:movieTitle="@{viewModel.movieTitle}"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/popularity_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_textview"
+            android:text="@{ `Popularity: ` + Utils.floatToString(viewModel.moviePopularity)}"
+            android:gravity="center"
+            android:layout_margin="10dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
