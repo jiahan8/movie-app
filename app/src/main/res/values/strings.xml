@@ -4,4 +4,6 @@
     <string name="longtext">Long text Long text Long text Long text Long text Long text Long text</string>
 
     <string name="book">Book</string>
+
+    <string name="start">Start</string>
 </resources>
