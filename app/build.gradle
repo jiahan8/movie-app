@@ -15,10 +15,10 @@ android {
     }
 
     buildTypes {
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+//        debug {
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -48,4 +48,7 @@ dependencies {
 
     implementation project(path: ':ViewModelAnno')
     annotationProcessor project(path: ':ViewModelAnnoCompiler')
+
+    implementation 'com.facebook.fresco:fresco:2.3.0'
+
 }

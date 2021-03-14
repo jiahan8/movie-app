@@ -25,18 +25,20 @@ public class MovieDetailActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Injector.inject( this );
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_movie_detail);
         setUp();
     }
 
     @Override
     protected void bindViewModel() {
-
     }
 
     public void setUp(){
+        Bundle bundle = new Bundle();
+        bundle.putInt("EXTRA_MOVIE_ID", getIntent().getIntExtra("EXTRA_MOVIE_ID", 0));
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.my_fragment, MovieDetailFragment.newInstance())
+                .add(R.id.my_fragment, MovieDetailFragment.newInstance(bundle) )
                 .commitAllowingStateLoss();
     }
 

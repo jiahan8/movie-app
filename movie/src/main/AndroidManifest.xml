@@ -5,6 +5,7 @@
     <application>
         <activity android:name=".feature.MovieListActivity"/>
         <activity android:name=".feature.MovieDetailActivity"/>
+        <activity android:name=".feature.MovieWebViewActivity"/>
     </application>
 
 </manifest>

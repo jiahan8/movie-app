@@ -40,4 +40,7 @@ public class Constant {
     public static final String DISPLAY_ECARD_ONBOARDING   = "DISPLAY_ECARD_ONBOARDING";
     public static final String REFRESH_MY_FAVE_DEAL       = "REFRESH_MY_FAVE_DEAL";
     public static final String REFRESH_MY_FAVE_COMPANY    = "REFRESH_MY_FAVE_COMPANY";
+
+    public static final String APIKEY                     = "a2cdcd4721eca322a8e25ba729721569";
+
 }

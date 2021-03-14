@@ -456,7 +456,7 @@ public class AppRoute {
     }
 
     public static class Movie{
-        private static final String movieCLassName = "com.jiahan.fave.feature.MovieListActivity";
+        private static final String movieCLassName = "com.jiahan.fave.movie.feature.MovieListActivity";
 
         public static Intent getMovieListActivityIntent(@NonNull final Context context) {
             Intent intent = new Intent();
@@ -467,8 +467,14 @@ public class AppRoute {
         public static Intent getMovieDetailActivityIntent(@NonNull final Context context,
                                                           @NonNull final int movieId) {
             Intent intent = new Intent();
-            intent.setClassName(context, "com.jiahan.fave.feature.MovieDetailActivity");
+            intent.setClassName(context, "com.jiahan.fave.movie.feature.MovieDetailActivity");
             intent.putExtra(EXTRA_MOVIE_ID, movieId);
+            return intent;
+        }
+
+        public static Intent getMovieWebViewActivityIntent(@NonNull final Context context) {
+            Intent intent = new Intent();
+            intent.setClassName(context, "com.jiahan.fave.movie.feature.MovieWebViewActivity");
             return intent;
         }
     }

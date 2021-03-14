@@ -6,6 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/nunito_font_family</item>
         <item name="android:windowBackground">@color/white</item>
+
+        <item name="windowActionBar" >false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.FullTransparent" parent="AppTheme">

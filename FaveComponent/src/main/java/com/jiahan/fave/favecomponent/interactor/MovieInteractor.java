@@ -1,5 +1,6 @@
 package com.jiahan.fave.favecomponent.interactor;
 
+import com.jiahan.fave.core.utils.Constant;
 import com.jiahan.fave.favecomponent.entity.MovieDetail;
 import com.jiahan.fave.favecomponent.network.MovieAPI;
 import com.jiahan.fave.favecomponent.network.pojo.response.MoviesResponse;
@@ -19,7 +20,7 @@ public class MovieInteractor extends BaseInteractor {
 
     public Observable<MoviesResponse> getMovie(int page) {
         return mMovieAPI.getMovieList(
-                "a2cdcd4721eca322a8e25ba729721569",
+                Constant.APIKEY,
                 "2021-08-01",
                 "2010-01-01",
                 "release_date.desc",
@@ -29,7 +30,7 @@ public class MovieInteractor extends BaseInteractor {
     public Observable<MovieDetail> getMovieDetail(int movieId) {
         return mMovieAPI.getMovieDetail(
                 movieId,
-                "a2cdcd4721eca322a8e25ba729721569");
+                Constant.APIKEY);
     }
 
 

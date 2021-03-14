@@ -129,20 +129,11 @@ public class Utils {
      * Return full image url.
      */
     public static String getImageURL(String secret) {
-        return "https://image.tmdb.org/t/p/w500$secret";
+        return "https://image.tmdb.org/t/p/w500" + secret;
     }
 
     public static String floatToString(float f) {
         return String.valueOf(f);
-    }
-
-    public static String getGenre(List<Object> genres) {
-//        List<String> result = new ArrayList<>();
-//        for(int i=0; i<genres.size(); i++){
-//            result.add(genres.get(i).name);
-//        }
-//        return TextUtils.join(",", result);
-        return "";
     }
 
     /**

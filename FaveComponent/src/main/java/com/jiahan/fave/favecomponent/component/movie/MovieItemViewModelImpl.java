@@ -1,5 +1,6 @@
 package com.jiahan.fave.favecomponent.component.movie;
 
+import android.util.Log;
 import android.view.View;
 
 import com.jiahan.fave.core.utils.AppRoute;
@@ -21,7 +22,7 @@ public class MovieItemViewModelImpl implements MovieItemViewModel {
 
     @Override
     public String getMovieImage() {
-        return mMovie.poster_path;
+        return "https://image.tmdb.org/t/p/w500" + mMovie.poster_path;
     }
 
     @Override

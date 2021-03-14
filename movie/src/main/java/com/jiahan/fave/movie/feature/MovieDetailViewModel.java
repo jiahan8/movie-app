@@ -1,18 +1,29 @@
 package com.jiahan.fave.movie.feature;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+import android.view.View;
+
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableFloat;
+import androidx.databinding.ObservableInt;
 
 import com.jiahan.fave.core.callback.BaseViewViewModel;
-import com.jiahan.fave.core.recyclerView.RecyclerViewAdapter;
-import com.jiahan.fave.core.recyclerView.RecyclerViewViewModel;
-import com.jiahan.fave.core.utils.EndlessRecyclerViewScrollListener;
 
-public interface MovieDetailViewModel extends BaseViewViewModel, RecyclerViewViewModel {
-//    ObservableArrayList<RecyclerViewItemViewModel> getItemList();
+public interface MovieDetailViewModel extends BaseViewViewModel {
 
-    RecyclerViewAdapter getAdapter();
+    void onItemClicked(View view);
 
-    EndlessRecyclerViewScrollListener getEndLessScrollListener();
+    ObservableField<String> getMovieImage();
 
-    LinearLayoutManager getLayoutManager();
+    ObservableField<String> getMovieTitle();
+
+    ObservableFloat getMoviePopularity();
+
+    ObservableField<String> getMovieOverview();
+
+    ObservableField<String> getMovieGenres();
+
+    ObservableField<String> getMovieOriginalLanguage();
+
+    ObservableInt getMovieRuntime();
+
 }
