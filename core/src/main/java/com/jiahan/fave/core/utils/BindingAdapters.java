@@ -369,7 +369,7 @@ public class BindingAdapters {
     }
 
     @BindingAdapter("webViewURL")
-    public static void setWebViewURL(WebView webView, String url) {
+    public static void webViewURL(WebView webView, String url) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ){
             webView.getSettings().setSafeBrowsingEnabled( false );
         }

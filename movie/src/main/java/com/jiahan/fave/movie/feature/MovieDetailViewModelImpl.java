@@ -104,6 +104,7 @@ public class MovieDetailViewModelImpl extends BaseViewViewModelImpl implements M
 
     @Override
     public void onItemClicked(View view) {
+        AppRoute.Launcher.Normal(view.getContext(), AppRoute.Movie.getMovieWebViewActivityIntent(view.getContext()));
     }
 
     @Override

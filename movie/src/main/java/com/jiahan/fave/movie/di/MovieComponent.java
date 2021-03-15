@@ -4,6 +4,7 @@ import com.jiahan.fave.favecomponent.di.FaveComponent;
 import com.jiahan.fave.movie.feature.MovieDetailActivity;
 import com.jiahan.fave.movie.feature.MovieDetailFragment;
 import com.jiahan.fave.movie.feature.MovieListActivity;
+import com.jiahan.fave.movie.feature.MovieWebViewActivity;
 
 import dagger.Component;
 
@@ -15,4 +16,6 @@ public interface MovieComponent {
     void inject(MovieDetailActivity movieDetailActivity);
 
     void inject(MovieDetailFragment movieDetailFragment);
+
+    void inject(MovieWebViewActivity movieWebViewActivity);
 }
