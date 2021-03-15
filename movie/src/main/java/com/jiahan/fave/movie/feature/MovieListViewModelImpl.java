@@ -38,6 +38,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class MovieListViewModelImpl extends BaseViewViewModelImpl implements MovieListViewModel {
     private final MovieInteractor    mInteractor;
     private final LinearLayoutManager mLayoutManager;
+    private final String mPrimaryReleaseDataLte;
+    private final String mPrimaryReleaseDataGte;
+    private final String mSortBy;
 
     private final ObservableArrayList<RecyclerViewItemViewModel> mViewModelList = new ObservableArrayList<>();
     private final ObservableBoolean                              mRefreshing    = new ObservableBoolean();
@@ -47,10 +50,16 @@ public class MovieListViewModelImpl extends BaseViewViewModelImpl implements Mov
     public MovieListViewModelImpl(final Context context,
                                   final String screenIdentifier,
                                   final EventSender eventSender,
-                                  final MovieInteractor interactor
+                                  final MovieInteractor interactor,
+                                  final String primaryReleaseDataLte,
+                                  final String primaryReleaseDataGte,
+                                  final String sortBy
     ) {
         super(context, screenIdentifier, eventSender);
         mInteractor = interactor;
+        mPrimaryReleaseDataLte = primaryReleaseDataLte;
+        mPrimaryReleaseDataGte = primaryReleaseDataGte;
+        mSortBy = sortBy;
         mLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
         if( !NetworkUtils.isNetworkConnected() ) {
             onNoInternetError();
@@ -100,7 +109,7 @@ public class MovieListViewModelImpl extends BaseViewViewModelImpl implements Mov
             mViewModelList.clear();
         }
         LoadingViewModel viewModel = new LoadingViewModelImpl();
-        mInteractor.getMovie( page )
+        mInteractor.getMovie( mPrimaryReleaseDataLte, mPrimaryReleaseDataGte, mSortBy, page )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(

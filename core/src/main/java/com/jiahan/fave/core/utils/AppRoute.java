@@ -37,6 +37,9 @@ public class AppRoute {
     public static final String EXTRA_COMPANY_ID            = "EXTRA_COMPANY_ID";
     public static final String EXTRA_MERCHANDISE           = "EXTRA_MERCHANDISE";
     public static final String EXTRA_MOVIE_ID              = "EXTRA_MOVIE_ID";
+    public static final String EXTRA_MOVIE_RELEASE_DATE_LTE= "EXTRA_MOVIE_RELEASE_DATE_LTE";
+    public static final String EXTRA_MOVIE_RELEASE_DATE_GTE= "EXTRA_MOVIE_RELEASE_DATE_GTE";
+    public static final String EXTRA_MOVIE_SORT_BY         = "EXTRA_MOVIE_SORT_BY";
 
     public static class OLD {
         public static Intent getFavePayActivityIntent(@NonNull final Context context, final long outletId, final long companyId) {
@@ -458,9 +461,16 @@ public class AppRoute {
     public static class Movie{
         private static final String movieCLassName = "com.jiahan.fave.movie.feature.MovieListActivity";
 
-        public static Intent getMovieListActivityIntent(@NonNull final Context context) {
+        public static Intent getMovieListActivityIntent(@NonNull final Context context,
+                                                        @NonNull final String primaryReleaseDateLte,
+                                                        @NonNull final String primaryReleaseDateGte,
+                                                        @NonNull final String sortBy
+                                                        ) {
             Intent intent = new Intent();
             intent.setClassName(context, movieCLassName);
+            intent.putExtra(EXTRA_MOVIE_RELEASE_DATE_LTE, primaryReleaseDateLte);
+            intent.putExtra(EXTRA_MOVIE_RELEASE_DATE_GTE, primaryReleaseDateGte);
+            intent.putExtra(EXTRA_MOVIE_SORT_BY, sortBy);
             return intent;
         }
 

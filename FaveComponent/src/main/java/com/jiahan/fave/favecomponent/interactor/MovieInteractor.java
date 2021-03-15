@@ -18,12 +18,12 @@ public class MovieInteractor extends BaseInteractor {
     public MovieInteractor() {
     }
 
-    public Observable<MoviesResponse> getMovie(int page) {
+    public Observable<MoviesResponse> getMovie(String primaryReleaseDataLte, String primaryReleaseDataGte, String sortBy, int page) {
         return mMovieAPI.getMovieList(
                 Constant.APIKEY,
-                "2021-08-01",
-                "2010-01-01",
-                "release_date.desc",
+                primaryReleaseDataLte,
+                primaryReleaseDataGte,
+                sortBy,
                 page);
     }
 
