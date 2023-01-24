@@ -30,7 +30,7 @@ interface NetworkService {
      * Main entry point for network access.
      */
     companion object {
-        private const val BASE_URL = "http://api.themoviedb.org/3/"
+        private const val BASE_URL = "https://api.themoviedb.org/3/"
         /**
          * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
          * full Kotlin compatibility.
