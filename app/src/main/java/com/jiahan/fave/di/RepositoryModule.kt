@@ -15,4 +15,3 @@ abstract class RepositoryModule {
     abstract fun bindRepository(moviesRepository: MoviesRepository): Repository
 
 }
-

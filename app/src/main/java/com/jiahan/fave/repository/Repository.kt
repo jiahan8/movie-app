@@ -9,10 +9,10 @@ import com.jiahan.fave.domain.MovieDetail
  */
 interface Repository {
 
-    fun getMovies() : LiveData<List<Movie>>
+    fun getMovies(): LiveData<List<Movie>>
 
     suspend fun getMovieList(page: Int)
 
-    suspend fun getMovieDetail(movieId: Int) : MovieDetail?
+    suspend fun getMovieDetail(movieId: Int): MovieDetail?
 
 }

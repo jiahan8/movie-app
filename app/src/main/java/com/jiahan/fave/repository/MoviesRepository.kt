@@ -15,12 +15,13 @@ import javax.inject.Singleton
 @Singleton
 class MoviesRepository @Inject constructor(
     private val movieDAO: MovieDAO,
-    private val networkService: NetworkService) : Repository {
+    private val networkService: NetworkService
+) : Repository {
 
     /**
      * Movies that will be shown on the screen.
      */
-    override fun getMovies() : LiveData<List<Movie>> = movieDAO.getMovies()
+    override fun getMovies(): LiveData<List<Movie>> = movieDAO.getMovies()
 
     /**
      * Get Movies from remote database, then syncing to Room.
@@ -30,13 +31,17 @@ class MoviesRepository @Inject constructor(
     override suspend fun getMovieList(page: Int) {
         try {
             val movielist = networkService.getMovieList(
-                    BuildConfig.API_KEY,
-                    "2021-08-01",
-                    "2010-01-01",
-                    "release_date.desc",
-                    page,
-                )
-            if( page == 1 ) {
+                BuildConfig.API_KEY,
+                "2030-01-01",
+                "2020-01-01",
+                "popularity.desc",
+                10,
+                "USA",
+                "USA",
+                "en",
+                page,
+            )
+            if (page == 1) {
                 movieDAO.deleteMovies()
                 movieDAO.deleteSequence()
             }
@@ -49,10 +54,10 @@ class MoviesRepository @Inject constructor(
     /**
      * Get movie detail from remote database based on movie id.
      */
-    override suspend fun getMovieDetail(movieId: Int) : MovieDetail?{
-        var movieDetail : MovieDetail? = null
+    override suspend fun getMovieDetail(movieId: Int): MovieDetail? {
+        var movieDetail: MovieDetail? = null
         try {
-             movieDetail = networkService.getMovieDetail(
+            movieDetail = networkService.getMovieDetail(
                 movieId,
                 BuildConfig.API_KEY,
             ).asDomainModel()

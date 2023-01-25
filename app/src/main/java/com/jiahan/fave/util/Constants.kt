@@ -5,4 +5,3 @@ package com.jiahan.fave.util
  */
 
 const val DATABASE_NAME = "movie.db"
-

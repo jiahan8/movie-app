@@ -13,17 +13,21 @@ interface NetworkService {
 
     @GET("discover/movie/")
     suspend fun getMovieList(
-        @Query("api_key") apiKey : String,
-        @Query("primary_release_date.lte") primaryReleaseDataLte : String,
-        @Query("primary_release_date.gte") primaryReleaseDataGte : String,
-        @Query("sort_by") sortBy : String,
-        @Query( "page") page : Int,
+        @Query("api_key") apiKey: String,
+        @Query("primary_release_date.lte") primaryReleaseDataLte: String,
+        @Query("primary_release_date.gte") primaryReleaseDataGte: String,
+        @Query("sort_by") sortBy: String,
+        @Query("vote_average.gte") voteAverage: Int,
+        @Query("watch_region") watchRegion: String,
+        @Query("with_watch_providers") withWatchProviders: String,
+        @Query("with_original_language") withOriginalLanguage: String,
+        @Query("page") page: Int,
     ): NetworkMovies
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetail(
-        @Path("movie_id") movieId : Int,
-        @Query("api_key") apiKey : String,
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String,
     ): NetworkMovieDetail
 
     /**
@@ -31,6 +35,7 @@ interface NetworkService {
      */
     companion object {
         private const val BASE_URL = "https://api.themoviedb.org/3/"
+
         /**
          * Build the Moshi object that Retrofit will be using, making sure to add the Kotlin adapter for
          * full Kotlin compatibility.
@@ -38,7 +43,8 @@ interface NetworkService {
         private val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
-        fun create() : NetworkService {
+
+        fun create(): NetworkService {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))

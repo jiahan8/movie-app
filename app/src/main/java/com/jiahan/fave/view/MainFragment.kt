@@ -1,7 +1,6 @@
 package com.jiahan.fave.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,16 +24,16 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by viewModels()
-    private var adapter: MovieAdapter? = null
-    var userDataList: MutableList<Movie> = ArrayList()
-    var layoutManager: LinearLayoutManager? = null
-    var isLoading = true
+    private lateinit var adapter: MovieAdapter
+    private var userDataList: MutableList<Movie> = ArrayList()
+    private lateinit var layoutManager: LinearLayoutManager
+    private var isLoading = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMainBinding.inflate( inflater, container, false )
+    ): View {
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
         layoutManager = LinearLayoutManager(requireContext())
@@ -59,13 +58,13 @@ class MainFragment : Fragment() {
         // Load more movies
         binding.recyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if( dy > 0 ){
-                    val visibleItemCount = layoutManager?.childCount
-                    val totalItemCount = layoutManager?.itemCount
-                    val pastVisiblesItems = layoutManager?.findFirstVisibleItemPosition()
-                    if(isLoading){
+                if (dy > 0) {
+                    val visibleItemCount = layoutManager.childCount
+                    val totalItemCount = layoutManager.itemCount
+                    val pastVisibleItems = layoutManager.findFirstVisibleItemPosition()
+                    if (isLoading) {
 //                        Log.e("abc", "loading" )
-                        if( (visibleItemCount!!.plus(pastVisiblesItems!!)) >= totalItemCount!!.minus(3)){
+                        if ((visibleItemCount.plus(pastVisibleItems)) >= totalItemCount.minus(3)) {
                             isLoading = false
                             // determine page number based on size of movies loaded
                             viewModel.getMovie(userDataList.size.div(20) + 1)
@@ -76,20 +75,21 @@ class MainFragment : Fragment() {
         })
 
         // Update view from Room Live Data
-        viewModel.movielist.observe(viewLifecycleOwner, { movies ->
-            if( userDataList.size == 0 ){
+        viewModel.movielist.observe(viewLifecycleOwner) { movies ->
+            if (userDataList.size == 0) {
                 userDataList.clear()
                 userDataList.addAll(movies)
-                adapter?.notifyDataSetChanged()
-            }else {
+                adapter.notifyDataSetChanged()
+            } else {
                 // Use diffutil to improve efficiency
-                val diffResult = DiffUtil.calculateDiff(MovieAdapter.RecyclerViewDiffUtil(userDataList, movies))
+                val diffResult =
+                    DiffUtil.calculateDiff(MovieAdapter.RecyclerViewDiffUtil(userDataList, movies))
                 userDataList.clear()
                 userDataList.addAll(movies)
-                diffResult.dispatchUpdatesTo(adapter!!)
+                diffResult.dispatchUpdatesTo(adapter)
             }
             isLoading = true
-        })
+        }
         return view
     }
 

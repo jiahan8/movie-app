@@ -3,7 +3,7 @@ package com.jiahan.fave.util
 import com.jiahan.fave.network.Genre
 import java.util.*
 
-object Util{
+object Util {
 
     /**
      * Return full image url.
@@ -21,9 +21,9 @@ object Util{
      * Convert ISO to full form.
      */
     @JvmStatic
-    fun isoToLanguage( iso: String? ): String = if(iso != null){
+    fun isoToLanguage(iso: String?): String = if (iso != null) {
         Locale(iso).getDisplayLanguage(Locale(iso))
-    }else{
+    } else {
         ""
     }
 }

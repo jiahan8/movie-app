@@ -9,6 +9,7 @@ data class NetworkMovies(
     val results: List<NetworkMovie>,
     val total_pages: Int
 )
+
 @JsonClass(generateAdapter = true)
 data class NetworkMovie(
     val id: Int,
@@ -28,6 +29,7 @@ data class NetworkMovieDetail(
     val original_language: String,
     val runtime: Int,
 )
+
 @JsonClass(generateAdapter = true)
 data class Genre(
     val id: Int,
@@ -45,6 +47,7 @@ fun NetworkMovies.asDatabaseModel(): Array<Movie> {
         )
     }.toTypedArray()
 }
+
 fun NetworkMovieDetail.asDomainModel(): MovieDetail {
     return MovieDetail(
         movie_id = id,

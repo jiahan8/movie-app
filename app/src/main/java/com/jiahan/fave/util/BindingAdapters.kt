@@ -11,7 +11,7 @@ import com.jiahan.fave.database.Movie
  */
 @BindingAdapter("goneIfNull")
 fun goneIfNull(view: View, it: Any?) {
-    view.visibility = if(it == null) View.GONE else View.VISIBLE
+    view.visibility = if (it == null) View.GONE else View.VISIBLE
 }
 
 /**
@@ -19,8 +19,8 @@ fun goneIfNull(view: View, it: Any?) {
  */
 @BindingAdapter("imageUrl")
 fun setImageUrl(imageView: SimpleDraweeView, movie: Movie) {
-    if( movie.poster_path != null )
-        imageView.setImageURI( Util.getImageURL(movie.poster_path) )
+    if (movie.poster_path != null)
+        imageView.setImageURI(Util.getImageURL(movie.poster_path))
     else
         imageView.visibility = View.GONE
 }
@@ -36,4 +36,3 @@ fun setMovieTitle(textView: TextView, title: String) {
     }
     textView.text = sentence
 }
-

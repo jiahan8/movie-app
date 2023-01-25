@@ -13,7 +13,7 @@ import com.jiahan.fave.viewmodel.DetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment(){
+class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
@@ -24,20 +24,20 @@ class DetailFragment : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentDetailBinding.inflate( inflater, container,false)
+    ): View {
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
 
         binding.lifecycleOwner = viewLifecycleOwner
         binding.movie = detailFragmentArgs.movie
 
         // Get movie detail based on movie id
-        viewModel.getMovieDetail( detailFragmentArgs.movie.movie_id )
+        viewModel.getMovieDetail(detailFragmentArgs.movie.movie_id)
 
         // Update view from live data, hide views if no network
-        viewModel.movieDetail.observe( viewLifecycleOwner, {
+        viewModel.movieDetail.observe(viewLifecycleOwner) {
             binding.moviedetail = it
-        })
+        }
 
         // Navigate to web view
         binding.button.setOnClickListener {

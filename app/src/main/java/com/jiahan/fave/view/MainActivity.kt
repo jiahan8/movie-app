@@ -1,7 +1,7 @@
 package com.jiahan.fave.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.jiahan.fave.R
 import dagger.hilt.android.AndroidEntryPoint

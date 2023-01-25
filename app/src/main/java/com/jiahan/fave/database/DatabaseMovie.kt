@@ -9,12 +9,12 @@ import kotlinx.parcelize.Parcelize
  * Movie Table in Room Database
  */
 @Parcelize
-@Entity( tableName = "movies" )
+@Entity(tableName = "movies")
 data class Movie constructor(
-       @PrimaryKey(autoGenerate = true)
-       val id: Int,
-       val movie_id: Int,
-       val poster_path: String?,
-       val title: String,
-       val popularity: Float,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val movie_id: Int,
+    val poster_path: String?,
+    val title: String,
+    val popularity: Float,
 ) : Parcelable
